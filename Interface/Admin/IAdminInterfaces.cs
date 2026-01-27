@@ -4,10 +4,10 @@ namespace Udemy_Backend.Interface.Admin
 {
     public interface IAdminInterfaces
     {
-        Task<AdminCommonResponseModel> AdminAddCountryAsync(AdminCountryAddModel data);
+        Task<AdminCommonResponseModel> AdminAddCountryAsync(AdminCountryAddModel data); // Dummy Test
         Task<AdminCommonResponseModel> AdminAddStatesAsync(AdminStateAddModel data);
         Task<List<CountryDto>> AdminGetAllCountryAsync();
-        Task<List<StateDto>> AdminGetAllStateAsync();
+        Task<List<StateDto>> AdminGetAllStateAsync();   
         Task<Country?> AdminGetCountryById(Guid Id);
         Task<State?> AdminGetStateById(Guid Id);
         Task<AdminCommonResponseModel> AdminUpdateCountryById(Guid Id, AdminCountryAddModel data);
