@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Learning Agent Pool'
+  name: 'LocalPool'
 
 variables:
   solution: '**/*.sln'
