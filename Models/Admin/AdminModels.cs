@@ -19,4 +19,33 @@
         public DateTime? Timestamp { get; set; } = DateTime.UtcNow;
         public Boolean IsActive { get; set; } = true;
     }
+    //*************************************** Order Models **********************************************//
+    public class Order { 
+         public Guid Id { get; set; }
+         public Guid UserId { get; set; }
+         public decimal Amount { get; set; }
+         public string Status { get; set; } = "Pending";
+         public string? RazorpayOrderId { get; set; }
+         public string? TransactionId { get; set; }
+         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+         public DateTime? PaidOn { get; set; }
+         public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
+    }
+    public class OrderItem
+     {
+         public Guid Id { get; set; }
+         public Guid OrderId { get; set; }
+         public Guid CourseId { get; set; }
+         public decimal Price { get; set; }
+     }
+    public class UserCourse
+    {
+        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
+        public List<Guid> CourseIds { get; set; } = new List<Guid>();
+        public bool IsActive { get; set; } = true;
+        public DateTime CreatedOn { get; set;} = DateTime.UtcNow;
+
+    }
+
 }

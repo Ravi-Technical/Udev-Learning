@@ -80,18 +80,17 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IEmailService, MailService>();
-
 // Admin Service Interface Injected
 builder.Services.AddScoped<ICategory, CategoryService>();
 builder.Services.AddScoped<ICourse, CourseServices>();
-
 // User Service Interface Injected 
 builder.Services.AddScoped<User_ICategory, UIService>();
 builder.Services.AddScoped<User_ICourse, UICourseService>();
 builder.Services.AddScoped<IHomeSlider, HomeSlider_Service>();
-
 // Admin Country State Interface Injected
 builder.Services.AddScoped<IAdminInterfaces, AdminCountryStateService>();
+// Payment Interface Inject
+builder.Services.AddScoped<IPaymentInterface, PaymentService>();
 
 builder.Services.AddAuthorization(options =>
 {

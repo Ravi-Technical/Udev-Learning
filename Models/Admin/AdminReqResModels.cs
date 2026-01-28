@@ -5,11 +5,11 @@
         public string? Name { get; set; }
         public string? CountryCode { get; set; }
     }
-    public class AdminCommonResponseModel
+    public class AdminCommonResponseModel<T>
     {
         public Boolean? Success { get; set; }
         public string? Message { get; set; }
-        public object? Data { get; set; }
+        public T? Data { get; set; }
     }
     public class AdminStateAddModel
     {
@@ -36,12 +36,39 @@
     }
     public class CountryDto
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string? Name { get; set; }
         public string? CountryCode { get; set; }
         public ICollection<State> State { get; set; } = new List<State>();
         public DateTime Timestamp { get; set; }
         public bool? IsActive { get; set; }
+    }
+
+    //************************************* Payment Gateway Request/Response Model *************************************//
+    public class CourseOrderResponse
+    {
+        public Guid OrderId { get; set; }
+        public string RazorpayOrderId { get; set; } = null!;
+        public decimal TotalAmount { get; set; }
+        public string RazorpayKey { get; set; } = null!;
+    }
+    public class CreateOrderRequest
+    {
+        public Guid UserId { get; set; }
+        public List<Guid> CourseIds { get; set; } = new();
+    }
+    public class VerifyPaymentRequest
+    {
+        public Guid OrderId { get; set; }
+        public string RazorpayOrderId { get; set; } = null!;
+        public string RazorpayPaymentId { get; set; } = null!;
+        public string RazorpaySignature { get; set; } = null!;
+    }
+    public class UserCourseDto
+    {
+        public Guid UserId { get; set; }
+        public List<Guid> CourseIds { get; set; } = new List<Guid>();
+
     }
 
 } // END MAIN CLASS HERE

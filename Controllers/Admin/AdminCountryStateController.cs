@@ -45,7 +45,7 @@ namespace Udemy_Backend.Controllers.Admin
         public async Task<IActionResult> GetAllAdminCountries()
         {
             var getAllCountries = await countryState_Service.AdminGetAllCountryAsync();
-            if (getAllCountries != null && getAllCountries.Count > 0)
+            if (getAllCountries != null)
             {
                 return Ok(getAllCountries);
             }
@@ -56,7 +56,7 @@ namespace Udemy_Backend.Controllers.Admin
         public async Task<IActionResult> GetAllStates()
         {
             var getWholeStates = await countryState_Service.AdminGetAllStateAsync();
-            if(getWholeStates != null && getWholeStates.Count > 0) return Ok(getWholeStates);
+            if(getWholeStates != null) return Ok(getWholeStates);
             return BadRequest(getWholeStates);
         }
 

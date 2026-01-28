@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Udemy_Backend.Database;
 
@@ -11,9 +12,11 @@ using Udemy_Backend.Database;
 namespace Udemy_Backend.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260128211706_Creating Orders, OrderItems, UserCourse Table")]
+    partial class CreatingOrdersOrderItemsUserCourseTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,7 +194,7 @@ namespace Udemy_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserCourses");
+                    b.ToTable("userCourses");
                 });
 
             modelBuilder.Entity("Udemy_Backend.Models.AdminModel.AddCourseModel", b =>
