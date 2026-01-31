@@ -14,7 +14,7 @@ namespace Udemy_Backend.Controllers.Admin
              paymentService= paymentInterface;
         }
 
-        // PAYMENT CREATE ENDPOINT
+        //**************** PAYMENT CREATE ENDPOINT testing ******************//
         [HttpPost("createOrder")]
         public async Task<IActionResult> CreateNewOrder(CreateOrderRequest req)
         {
