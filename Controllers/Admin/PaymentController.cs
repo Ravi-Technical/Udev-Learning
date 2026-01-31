@@ -14,7 +14,7 @@ namespace Udemy_Backend.Controllers.Admin
              paymentService= paymentInterface;
         }
 
-        //**************** PAYMENT CREATE ENDPOINT This is the sample test of azure/github ******************//
+        //**************** PAYMENT CREATE ENDPOINT ******************//
         [HttpPost("createOrder")]
         public async Task<IActionResult> CreateNewOrder(CreateOrderRequest req)
         {
