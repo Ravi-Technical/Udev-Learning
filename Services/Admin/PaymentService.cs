@@ -69,27 +69,16 @@ namespace Udemy_Backend.Services.Admin
         public async Task<bool> VerifyOrder(VerifyPaymentRequest req)
         {
             var order = await database.Orders.Include(x=>x.Items).FirstOrDefaultAsync(od=>od.Id == req.OrderId);
-
             if (order == null) throw new ArgumentException("Order not found!");
-
             string payload = req.RazorpayOrderId + "|" + req.RazorpayPaymentId;
-
             string secret = _config["Razorpay:Secret"]!;
-
             using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secret)); 
-
             var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
-
             var generated = Convert.ToHexString(hash).ToLower();
-
             if (generated != req.RazorpaySignature) throw new ArgumentException("Invalid signature");
-
             order.Status = "Paid";
-
             order.TransactionId = req.RazorpaySignature;
-
             order.PaidOn = DateTime.UtcNow;
-
             foreach (var item in order.Items) {
                 database.UserCourses.Add(new UserCourse {
                    UserId = order.UserId,
@@ -97,7 +86,6 @@ namespace Udemy_Backend.Services.Admin
                 });
             }
             await database.SaveChangesAsync();
-            
             return true;
         }
 
