@@ -83,6 +83,7 @@ namespace Udemy_Backend.Services
                 var token = GenerateToken(req);
                 var userTransformData = new UserDto
                 {
+                    Id = userInfo.Id,
                     FullName = userInfo.FullName ?? "",
                     Email = userInfo.Email ?? "",
                     Role = userInfo.Role ?? ""
@@ -108,6 +109,7 @@ namespace Udemy_Backend.Services
             if (data == null) return null;
             var modifyRes = new UserDto
             {
+                Id = data.Id,
                 FullName = data.FullName ?? "",
                 Email = data.Email ?? "",
                 Role = data.Role

@@ -42,7 +42,7 @@
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public List<Guid> CourseIds { get; set; } = new List<Guid>();
+        public Guid CourseIds { get; set; }
         public bool IsActive { get; set; } = true;
         public DateTime CreatedOn { get; set;} = DateTime.UtcNow;
 

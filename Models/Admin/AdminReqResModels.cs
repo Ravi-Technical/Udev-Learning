@@ -67,7 +67,7 @@
     public class UserCourseDto
     {
         public Guid UserId { get; set; }
-        public List<Guid> CourseIds { get; set; } = new List<Guid>();
+        public Guid CourseId { get; set; }
 
     }
 
