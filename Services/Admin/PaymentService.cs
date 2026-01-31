@@ -91,12 +91,10 @@ namespace Udemy_Backend.Services.Admin
             order.PaidOn = DateTime.UtcNow;
 
             foreach (var item in order.Items) {
-
                 database.UserCourses.Add(new UserCourse {
                    UserId = order.UserId,
                    CourseIds = item.CourseId
                 });
-
             }
             await database.SaveChangesAsync();
             
