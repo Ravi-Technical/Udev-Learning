@@ -56,6 +56,8 @@
     {
         public Guid UserId { get; set; }
         public List<Guid> CourseIds { get; set; } = new();
+        public string? Country {get; set;}
+        public string? State { get; set; }
     }
     public class VerifyPaymentRequest
     {

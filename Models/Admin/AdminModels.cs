@@ -27,6 +27,8 @@
          public string Status { get; set; } = "Pending";
          public string? RazorpayOrderId { get; set; }
          public string? TransactionId { get; set; }
+         public string? Country { get; set; }
+         public string? State { get; set; }
          public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
          public DateTime? PaidOn { get; set; }
          public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
@@ -45,7 +47,6 @@
         public Guid CourseIds { get; set; }
         public bool IsActive { get; set; } = true;
         public DateTime CreatedOn { get; set;} = DateTime.UtcNow;
-
     }
 
 }

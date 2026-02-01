@@ -30,6 +30,8 @@ namespace Udemy_Backend.Services.Admin
                 Id = Guid.NewGuid(),
                 UserId = req.UserId,
                 Amount = total,
+                Country = req.Country,
+                State = req.State,
                 Status = "Pending"
             };
             await database.Orders.AddAsync(order);
